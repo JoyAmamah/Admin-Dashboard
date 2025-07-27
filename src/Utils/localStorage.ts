@@ -1,5 +1,4 @@
 
-// Set item in localStorage
 export function setItem(key: string, value: unknown) {
   try {
     window.localStorage.setItem(key, JSON.stringify(value));
@@ -8,7 +7,6 @@ export function setItem(key: string, value: unknown) {
   }
 }
 
-// Get item from localStorage
 export function getItem<T = unknown>(key: string): T | undefined {
   try {
     const item = window.localStorage.getItem(key);
@@ -19,7 +17,6 @@ export function getItem<T = unknown>(key: string): T | undefined {
   }
 }
 
-// Remove item from localStorage
 export function removeItem(key: string): void {
   try {
     window.localStorage.removeItem(key);

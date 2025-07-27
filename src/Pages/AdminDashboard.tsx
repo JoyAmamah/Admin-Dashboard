@@ -1,8 +1,9 @@
-import { FaUserTie, FaUserClock } from "react-icons/fa";
 import DashboardCard from "../Components/DashboardCard";
 import SideBar from "./SideBar";
 import { usePersistedState } from "../Hooks/usePersistedState";
-import DarkModeToggle from "../Hooks/DarkModeToggle";
+import Rechart from "../Components/RechartsTable";
+import RechartsTable from "../Components/RechartsTable";
+import RechartPie from "../Components/RechartPie";
 
 const AdminDashboard = () => {
   const [employees] = usePersistedState("employees", []);
@@ -45,7 +46,7 @@ const AdminDashboard = () => {
 
           />
           <DashboardCard
-            title="New Hires"
+            title="New Hires" 
             value={newHires}
             iconName="FaUserClock"
             description="Hired in last 30 days"
@@ -53,6 +54,10 @@ const AdminDashboard = () => {
             hoverColor="bg-green-400"
           />
         </div>
+     <div className="flex flex-row">
+      <RechartsTable />
+       <RechartPie />
+     </div>
       </section>
     </main>
   );

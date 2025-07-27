@@ -1,7 +1,7 @@
 import { useState } from "react";
 import EmployeeForm from "./EmployeeForm";
 import { usePersistedState } from "../Hooks/usePersistedState";
-import type { Employee } from "../types/Types";
+import type { Employee } from "../types/types";
 import Modal from "./Modal";
 import { FaEye, FaEdit, FaTrash } from "react-icons/fa";
 import SideBar from "../Pages/SideBar";
@@ -27,14 +27,13 @@ const EmployeeTable = () => {
     setEditingEmployee(null);
     setModalOpen(true);
   };
+const handleExportToExcel = () => {
+  downloadExcel(employees, "Employees");
+};
 
-  const handleExportToExcel = () => {
-    downloadExcel(employees, "Employees");
-  };
-
-  const handleExportToJson = () => {
-    downloadJson(employees, "Employees");
-  };
+const handleExportToJson = () => {
+  downloadJson(employees, "Employees");
+};
 
   const handleEdit = (employee: Employee) => {
     setEditingEmployee(employee);
@@ -50,15 +49,14 @@ const EmployeeTable = () => {
   };
 
   const handleSave = (employee: Employee) => {
-    setEmployees((prev) => {
-      const exists = prev.find((e) => e.id === employee.id);
-      if (exists) {
-        return prev.map((e) => (e.id === employee.id ? employee : e));
-      }
-      return [...prev, employee];
-    });
-    setModalOpen(false);
-  };
+  const updated = employees.find((e) => e.id === employee.id)
+    ? employees.map((e) => (e.id === employee.id ? employee : e))
+    : [...employees, employee];
+
+  setEmployees(updated);
+  setModalOpen(false);
+};
+
 
   const filteredEmployees = employees
     .filter(
@@ -109,11 +107,11 @@ const EmployeeTable = () => {
 
           <select
             onChange={(e) => {
-              const value = e.target.value;
-              if (value === "excel") {
-                handleExportToExcel(employees, "Employees");
-              } else if (value === "json") {
-                handleExportToJson(employees, "Employees");
+    const value = e.target.value;
+    if (value === "excel") {
+      handleExportToExcel(); 
+    } else if (value === "json") {
+      handleExportToJson(); 
               }
             }}
             className="border border-gray-300 rounded-md px-4 py-2 text-sm shadow-sm focus:outline-none focus:ring focus:border-blue-500"

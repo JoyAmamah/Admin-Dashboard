@@ -6,6 +6,8 @@ const Types = () => {
 
 export type Employee = {
   id: string;
+  data: Employee[], 
+  filename: string
   name: string;
   department: string;
   role: string;
@@ -25,6 +27,10 @@ export type CardData = {
   color?: string;
   hoverColor?: string;
 };
+export type entry = {
+  label: string;
+  value: number;
+};
 
 export type ModalProps = {
   isOpen: boolean;
@@ -33,10 +39,13 @@ export type ModalProps = {
   children: React.ReactNode;
 };
 
+
+
 export type Department = {
   id: string;
-  name: string;
+  name?: string;
   description?: string;
+  department: string;
 };
 
 export type Status = 'Active' | 'Inactive' | 'Terminated';

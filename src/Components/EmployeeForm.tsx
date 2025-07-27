@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import type { Employee } from "../types/Types";
+import type { Employee } from "../types/types";
 
 type Props = {
   onSubmit: (employee: Employee) => void;
@@ -17,6 +17,8 @@ const defaultForm: Employee = {
   phone: "",
   email: "",
   emergencyContact: "",
+  data: [],
+  filename: ""
 };
 
 const EmployeeForm: React.FC<Props> = ({ onSubmit, initialData }) => {
