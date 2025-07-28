@@ -4,14 +4,11 @@ import EmployeeTable from './Components/EmployeeTable';
 import SignUpPage from './Pages/SignUpPage';
 import SignInPage from './Pages/SignInPage';
 import Department from './Components/Department';
-import Rechart from './Components/RechartsTable';
 import RechartsTable from './Components/RechartsTable';
 import RechartPie from './Components/RechartPie';
-// import DarkModeToggle from './Hooks/DarkModeToggle';
 
 const App = () => {
   
-  // <DarkModeToggle />
   return (
     <BrowserRouter>
       <Routes>

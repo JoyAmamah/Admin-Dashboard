@@ -1,7 +1,6 @@
 import DashboardCard from "../Components/DashboardCard";
 import SideBar from "./SideBar";
 import { usePersistedState } from "../Hooks/usePersistedState";
-import Rechart from "../Components/RechartsTable";
 import RechartsTable from "../Components/RechartsTable";
 import RechartPie from "../Components/RechartPie";
 

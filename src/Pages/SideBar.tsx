@@ -4,7 +4,7 @@ import { usePersistedState } from '../Hooks/usePersistedState';
 import { BiSolidLogOut } from 'react-icons/bi';
 
 const SideBar = () => {
-  const [isSignedIn, setIsSignedIn] = usePersistedState("isSignedIn", false);
+  const [, setIsSignedIn] = usePersistedState("isSignedIn", false);
   const [firstname] = usePersistedState("firstname", "");
   const [lastname] = usePersistedState("lastname", "");
 

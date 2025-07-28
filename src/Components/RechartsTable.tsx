@@ -3,7 +3,6 @@ import { usePersistedState } from '../Hooks/usePersistedState';
 import type { Employee, Department } from '../types/types';
 
 
-
 const RechartsTable = () => {
   const [employees] = usePersistedState<Employee[]>("employees", []);
   const [departments] = usePersistedState<Department[]>("departments", []);
@@ -40,7 +39,7 @@ const RechartsTable = () => {
       <YAxis />
       <Tooltip />
       <Bar dataKey="value">
-        {chartData?.map((entry, index) => (
+        {chartData?.map((_, index) => (
           <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
         ))}
       </Bar>

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+ import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { usePersistedState } from "../Hooks/usePersistedState";
 
@@ -9,8 +9,6 @@ const SignInPage = () => {
   const [savedEmail] = usePersistedState("email", "");
   const [savedPassword] = usePersistedState("password", "");
   const [isSignedUp] = usePersistedState("isSignedUp", false);
-  const [savedFirstname] = usePersistedState("firstname", "");
-  const [, setStoredFirstname] = usePersistedState("firstname", "");
   const [isSignedIn, setIsSignedIn] = usePersistedState("isSignedIn", false);
 
   const navigate = useNavigate();
@@ -31,7 +29,6 @@ const SignInPage = () => {
 
     if (email === savedEmail && password === savedPassword) {
       setIsSignedIn(true);
-      // optional: setStoredFirstname(savedFirstname); // not needed unless changing it
     } else {
       alert("Invalid email or password");
     }
