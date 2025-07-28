@@ -11,8 +11,8 @@ export interface DashboardCardProps {
 }
 
 const iconMap = {
-  FaUserTie: <FaUserTie />,
-  FaUserClock: <FaUserClock />,
+  FaUserTie: <FaUserTie className="text-blue-600 dark:text-blue-300 text-3xl" />,
+  FaUserClock: <FaUserClock className="text-green-600 dark:text-green-300 text-3xl" />,
 };
 
 const DashboardCard: FC<DashboardCardProps> = ({
@@ -27,12 +27,19 @@ const DashboardCard: FC<DashboardCardProps> = ({
 
   return (
     <div
-  className={`p-4 rounded shadow transition-colors ${color} ${hoverColor ? `hover:${hoverColor}` : ""} dark:bg-gray-800 dark:text-white`}
+      className={`transition-all duration-300 transform hover:scale-[1.02] rounded-2xl shadow-md p-5 ${color} ${
+        hoverColor ? `hover:${hoverColor}` : ""
+      } dark:bg-gray-800 dark:text-white`}
     >
-      <div className="text-2xl mb-2">{icon}</div>
-      <h2 className="text-lg font-bold">{title}</h2>
-      <p className="text-3xl">{value}</p>
-      <p className="text-sm text-gray-600 dark:text-gray-300">{description}</p>
+      <div className="flex items-center justify-between mb-4">
+        <div className="text-xl font-semibold">{title}</div>
+        <div className="">{icon}</div>
+      </div>
+
+      <div className="text-4xl font-bold mb-2">{value}</div>
+      {description && (
+        <p className="text-sm text-gray-600 dark:text-gray-400">{description}</p>
+      )}
     </div>
   );
 };
