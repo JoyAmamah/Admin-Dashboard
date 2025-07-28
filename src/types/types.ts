@@ -43,6 +43,7 @@ export type ModalProps = {
 
 export type Department = {
   id: string;
+   hireDate?: string;
   name?: string;
   description?: string;
   department: string;
